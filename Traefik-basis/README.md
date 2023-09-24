@@ -18,4 +18,17 @@ Voor de statische configuratie heb je 3 opties:
 * Als opstart parameters
 * Als environment
 
-De dynamische configuratie geef je vanuit docker mee als labels aan de diverse containers.
+Voor deze workshop gebruiken we de opstart parameters als statische config (via docker-compose) en laden we de Docker provider als input voor de dynamische configuratie.
+
+```yaml
+    command:
+      - "--log.level=DEBUG"
+      - "--accesslog=true"
+      - "--api.insecure=true"
+      - "--api.dashboard=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entryPoints.http.address=:80"
+      - "--entryPoints.https.address=:443"
+      - "--entryPoints.https.http.tls=true"
+```

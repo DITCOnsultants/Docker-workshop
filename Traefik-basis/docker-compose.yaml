@@ -17,6 +17,7 @@ services:
       - "--providers.docker.exposedbydefault=false"
       - "--entryPoints.http.address=:80"
       - "--entryPoints.https.address=:443"
+      - "--entryPoints.https.http.tls=true"
     ports:
       - 80:80
       - 443:443
@@ -38,7 +39,7 @@ services:
     restart: always
     labels:
       - traefik.enable=true
-      - traefik.http.routers.mywebserver.entryPoints=http
+      - traefik.http.routers.mywebserver.entryPoints=https
       - traefik.http.services.mywebserver.loadbalancer.server.port=80
 
       # - traefik.http.routers.mywebserver.rule=Host(`myweb.local`)
