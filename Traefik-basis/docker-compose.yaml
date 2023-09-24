@@ -1,0 +1,51 @@
+---
+version: "3.3"
+
+networks:
+  webfrontend:
+
+services:
+  traefik:
+    image: "traefik"
+    container_name: "traefik"
+    command:
+      - "--log.level=DEBUG"
+      - "--accesslog=true"
+      - "--api.insecure=true"
+      - "--api.dashboard=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entryPoints.http.address=:80"
+      - "--entryPoints.https.address=:443"
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    networks:
+      - webfrontend
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/docker/traefik/certs:/certs
+    restart: always
+
+  webserver:
+    container_name: webserver
+    image: nginx
+    volumes:
+      - ./webserver/:/usr/share/nginx/html
+    networks:
+      - webfrontend
+    restart: always
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.mywebserver.entryPoints=http
+      - traefik.http.services.mywebserver.loadbalancer.server.port=80
+
+      # - traefik.http.routers.mywebserver.rule=Host(`myweb.local`)
+      # - traefik.http.routers.mywebserver.rule=ClientIP(`10.0.0.0/8`)
+      - traefik.http.routers.mywebserver.rule=PathPrefix(`/mywebserver`)
+
+      # - traefik.http.middlewares.my-strip.stripprefix.prefixes=/mywebserver
+      # - traefik.http.routers.mywebserver.middlewares=my-strip
+
+      # - traefik.http.routers.mywebserver.priority=50
