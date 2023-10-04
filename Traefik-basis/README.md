@@ -32,3 +32,9 @@ Voor deze workshop gebruiken we de opstart parameters als statische config (via 
       - "--entryPoints.https.address=:443"
       - "--entryPoints.https.http.tls=true"
 ```
+
+### Routers / Services
+
+### Middlewares
+
+## ACME / Letsencrypt

@@ -47,6 +47,7 @@ services:
       - traefik.http.routers.mywebserver.rule=PathPrefix(`/mywebserver`)
 
       # - traefik.http.middlewares.my-strip.stripprefix.prefixes=/mywebserver
+      ## https://doc.traefik.io/traefik/migration/v1-to-v2/#strip-and-rewrite-path-prefixes
       # - traefik.http.routers.mywebserver.middlewares=my-strip
 
       # - traefik.http.routers.mywebserver.priority=50
