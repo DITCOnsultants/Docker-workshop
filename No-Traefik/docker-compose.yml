@@ -1,0 +1,28 @@
+---
+version: "3.3"
+
+networks:
+  webfrontend:
+
+services:
+  webserver1:
+    container_name: webserver1
+    image: nginx
+    volumes:
+      - ./webserver1/:/usr/share/nginx/html
+    networks:
+      - webfrontend
+    ports:
+      - 8081:80
+    restart: always
+
+  webserver2:
+    container_name: webserver2
+    image: nginx
+    volumes:
+      - ./webserver2/:/usr/share/nginx/html
+    networks:
+      - webfrontend
+    ports:
+      - 8082:80
+    restart: always

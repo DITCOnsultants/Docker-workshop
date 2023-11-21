@@ -14,6 +14,15 @@ Traefik kent nog een groot aantal extra opties welke wellicht in extra modules t
 
 ### Basis zonder traefik
 - Docker @ Azure demo
+  - Maak VM
+  - Installeer Docker en docker-compose
+```bash
+sudo apt update
+sudo apt dist-upgrade
+sudo apt install docker.io docker-compose
+sudo usermod -a -G docker Eric
+sudo mkdir -p /opt/docker
+```
   - nginx op poort 8080 en 8081
 
 ### Traefik basis
