@@ -38,7 +38,7 @@ docker-compose up
 
 ## File configuration provider
 - Andere hosts
-
+  - [Google](https://google.az.frotmail.nl)
 
 # Extra A: Middleware
 - Rewriting
