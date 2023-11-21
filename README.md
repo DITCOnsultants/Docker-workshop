@@ -1,17 +1,8 @@
-# Docker Workshops
-Mijn uitstapjes in Docker wil ik ergens vastleggen om als naslag of quick-start te kunnen gebruiken bij workshops
-
-## [Traefik-basis](Traefik-basis/README.md)
-Traefik is een populaire reverse proxy oplossing waarbij je weinig nodig hebt om een centrale ingang via https (of http) kan bieden tot een grotere verzameling containers. 
-
-Traefik kent nog een groot aantal extra opties welke wellicht in extra modules terug kunnen komen.
-
 # Workshop 23-11
 ## Starten met opbouwen
-
-### Basis zonder traefik
-Docker @ Azure demo
+Docker @ Azure
 - Maak VM
+- Fix DNS
 - Installeer Docker en docker-compose
 ```bash
 sudo apt update
@@ -19,47 +10,47 @@ sudo apt dist-upgrade
 sudo apt install docker.io docker-compose
 sudo usermod -a -G docker Eric
 sudo mkdir -p /opt/docker
-```
-- nginx op poort 8080 en 8081
-```bash
 sudo chown Eric /opt/docker
 cd /opt/docker
 git clone git@github.com:DITCOnsultants/Docker-workshop.git
 cd Docker-workshop/
 git checkout Workshop-23-11 
+```
+
+## Basis zonder traefik
+- nginx op poort 8080 en 8081
+```bash
 cd No-Traefik/
 docker-compose up
 ```
 
-### Traefik basis
+## Traefik basis
 - Traefik ervoor om single point of entry
-- Wat doet/kan Traefik
+- Wat doet/kan Traefik: [Dashboard](http://az.frotmail.nl:8080)
 
-### SSL / Letsencrypt / ... ?
+## SSL / Letsencrypt / ... ?
 - Traefik SSL
+  - [webserver1](https://web1.az.frotmail.nl)
+  - [webserver2](https://web2.az.frotmail.nl)
 
-### Traefik in Kubernetes
+## Traefik in Kubernetes
 - Folkert <insert github link>
 
-### File configuration provider
+## File configuration provider
 - Andere hosts
 
 
 
-### Extra A: Middleware
+# Extra A: Middleware
 - Rewriting
 - HTTP Auth (basic)
 - Authelia
 - SNI / eSNI / ECH (??)
 
-### Extra B: T-shoot
+# Extra B: T-shoot
 - Logging
 - API
 - Dashboard
 
-### Extra C: Health probes
+# Extra C: Health probes
 - Load balancing (nu echt)
-
-# Todo:
-- Azure VM met docker
-- compose files voor de demo's
