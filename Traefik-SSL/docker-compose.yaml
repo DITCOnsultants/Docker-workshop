@@ -20,7 +20,7 @@ services:
       - "--entryPoints.https.http.tls=true"
       - "--certificatesresolvers.letsencrypt.acme.email=az@frotmail.nl"
       - "--certificatesresolvers.letsencrypt.acme.storage=/certs/acme.json"
-      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=http"
     ports:
       - 80:80
       - 443:443
