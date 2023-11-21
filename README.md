@@ -34,11 +34,10 @@ docker-compose up
   - [webserver2](https://web2.az.frotmail.nl)
 
 ## Traefik in Kubernetes
-- Folkert <insert github link>
+- Folkert
 
 ## File configuration provider
 - Andere hosts
-
 
 
 # Extra A: Middleware

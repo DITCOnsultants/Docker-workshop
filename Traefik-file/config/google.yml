@@ -1,0 +1,16 @@
+http:
+  routers:
+    google:
+      entryPoints:
+        - "https"
+      rule: Host(`google.az.frotmail.nl`)
+      service: go-to-google
+      tls:
+        certresolver: "letsencrypt"
+  services:
+    go-to-google:
+      loadBalancer:
+        servers:
+          - url: "https://www.google.com/"
+        passHostHeader: false
+
