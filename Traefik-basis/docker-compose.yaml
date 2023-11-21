@@ -29,25 +29,34 @@ services:
       - /opt/docker/traefik/certs:/certs
     restart: always
 
-  webserver:
-    container_name: webserver
+  webserver1:
+    container_name: webserver1
     image: nginx
     volumes:
-      - ./webserver/:/usr/share/nginx/html
+      - ../No-Traefik/webserver1/:/usr/share/nginx/html
     networks:
       - webfrontend
-    restart: always
+    ports:
+      - 8081:80
     labels:
       - traefik.enable=true
-      - traefik.http.routers.mywebserver.entryPoints=https
-      - traefik.http.services.mywebserver.loadbalancer.server.port=80
+      - traefik.http.routers.webserver1.entryPoints=https
+      - traefik.http.services.webserver1.loadbalancer.server.port=80
+      - traefik.http.routers.webserver1.rule=Host(`web1.az.frotmail.nl`)
+    restart: always
 
-      # - traefik.http.routers.mywebserver.rule=Host(`myweb.local`)
-      # - traefik.http.routers.mywebserver.rule=ClientIP(`10.0.0.0/8`)
-      - traefik.http.routers.mywebserver.rule=PathPrefix(`/mywebserver`)
-
-      # - traefik.http.middlewares.my-strip.stripprefix.prefixes=/mywebserver
-      ## https://doc.traefik.io/traefik/migration/v1-to-v2/#strip-and-rewrite-path-prefixes
-      # - traefik.http.routers.mywebserver.middlewares=my-strip
-
-      # - traefik.http.routers.mywebserver.priority=50
+  webserver2:
+    container_name: webserver2
+    image: nginx
+    volumes:
+      - ../No-Traefik/webserver2/:/usr/share/nginx/html
+    networks:
+      - webfrontend
+    ports:
+      - 8082:80
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.webserver2.entryPoints=https
+      - traefik.http.services.webserver2.loadbalancer.server.port=80
+      - traefik.http.routers.webserver2.rule=Host(`web2.az.frotmail.nl`)
+    restart: always
