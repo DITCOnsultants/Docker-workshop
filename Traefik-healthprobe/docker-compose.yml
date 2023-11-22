@@ -39,7 +39,7 @@ services:
       - traefik.http.routers.mywebserver1.entryPoints=http
       - traefik.http.services.mywebserver1.loadbalancer.server.port=80
       - traefik.http.routers.mywebserver1.rule=Host(`az.frotmail.nl`)
-
+      - traefik.http.services.mywebserver1.loadbalancer.healthCheck.path=/health.html
   webserver2:
     container_name: webserver2
     image: nginx
