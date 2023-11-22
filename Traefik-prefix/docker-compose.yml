@@ -36,7 +36,7 @@ services:
     restart: always
     labels:
       - traefik.enable=true
-      - traefik.http.routers.mywebserver1.entryPoints=https
+      - traefik.http.routers.mywebserver1.entryPoints=http
       - traefik.http.services.mywebserver1.loadbalancer.server.port=80
       - traefik.http.routers.mywebserver1.rule=PathPrefix(`/mywebserver1`)
 
@@ -50,7 +50,7 @@ services:
     restart: always
     labels:
       - traefik.enable=true
-      - traefik.http.routers.mywebserver2.entryPoints=https
+      - traefik.http.routers.mywebserver2.entryPoints=http
       - traefik.http.services.mywebserver2.loadbalancer.server.port=80
       - traefik.http.routers.mywebserver2.rule=PathPrefix(`/mywebserver2`)
       - traefik.http.routers.mywebserver2.middlewares=my-strip
