@@ -30,7 +30,7 @@ services:
     container_name: webserver1
     image: nginx
     volumes:
-      - ./webserver/:/usr/share/nginx/html
+      - ./webserver/mywebserver1:/usr/share/nginx/html
     networks:
       - webfrontend
     restart: always
@@ -44,7 +44,7 @@ services:
     container_name: webserver2
     image: nginx
     volumes:
-      - ./webserver/:/usr/share/nginx/html
+      - ./webserver/mywebserver2:/usr/share/nginx/html
     networks:
       - webfrontend
     restart: always
