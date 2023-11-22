@@ -53,4 +53,5 @@ services:
       - traefik.http.routers.mywebserver1.entryPoints=http
       - traefik.http.services.mywebserver1.loadbalancer.server.port=80
       - traefik.http.routers.mywebserver1.rule=Host(`az.frotmail.nl`)
+      - traefik.http.services.mywebserver1.loadbalancer.healthCheck.path=/health.html
       # - traefik.http.routers.mywebserver.priority=50
