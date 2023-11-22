@@ -42,7 +42,10 @@ docker-compose up
 
 # Extra A: Middleware
 - Rewriting
+  - [webserver1](http://az.frotmail.nl/mywebserver1/)
+  - [webserver2](http://az.frotmail.nl/mywebserver2/)
 - HTTP Auth (basic)
+
 - Authelia
 - SNI / eSNI / ECH (??)
 
@@ -51,5 +54,10 @@ docker-compose up
 - API
 - Dashboard
 
-# Extra C: Health probes
+# Extra C: Loadbalancing
 - Load balancing (nu echt)
+  - [Dashboard](http://az.frotmail.nl:8080)
+  - [Site](http://az.frotmail.nl/)
+- Health probes
+  - [Dashboard](http://az.frotmail.nl:8080)
+  - [Site](http://az.frotmail.nl/)
