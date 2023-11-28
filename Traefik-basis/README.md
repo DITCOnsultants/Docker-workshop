@@ -1,3 +1,6 @@
+# README needs update :P
+
+
 # De basis
 Hoewel ik dit heel snel de basis noem zitten er toch al vrij veel zaken in die wellicht beter passen in een workshop voor gevorderden.
 
